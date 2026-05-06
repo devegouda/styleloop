@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>StyleLoop</Text>
-      <Text style={styles.tagline}>Indian First Fashion resale app</Text>
+      <Text style={styles.tagline}>Fashion that never ends</Text>
     </View>
   );
 }
