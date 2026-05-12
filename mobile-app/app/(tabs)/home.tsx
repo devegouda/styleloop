@@ -1,9 +1,11 @@
+import { router } from "expo-router";
 import {
   Dimensions,
   FlatList,
   Image,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { useProducts } from "../../context/productcontext";
@@ -22,7 +24,11 @@ export default function Home() {
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
-          <View style={styles.card}>
+         <TouchableOpacity
+  style={styles.card}
+  activeOpacity={0.8}
+  onPress={() => router.push(`/product/${item.id}`)}
+>
             <Image source={{ uri: item.image }} style={styles.image} />
 
             <Text style={styles.name}>{item.name}</Text>
@@ -35,7 +41,7 @@ export default function Home() {
               <Text style={styles.detail}>Condition: {item.condition}</Text>
               <Text style={styles.detail}>Category: {item.category}</Text>
             </View>
-          </View>
+         </TouchableOpacity>
         )}
       />
     </View>
